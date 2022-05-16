@@ -106,8 +106,13 @@ func main() {
 		
 		
 		
-		
-		
+		target, err := base64.StdEncoding.DecodeString(target4)
+		if err != nil {
+			if _, ok := err.(base64.CorruptInputError); ok {
+		    		panic("\nbase64 input is corrupt, check service Key")
+			}
+			panic(err)
+	    	}
 		
 		
 		
