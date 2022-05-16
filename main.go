@@ -55,7 +55,7 @@ func main() {
 		
 		target2 = (target2[:len(target2)-3])
 		
-		target25, err := base64.StdEncoding.DecodeString(target2))
+		target25, err := base64.StdEncoding.DecodeString(target2)
 		if err != nil {
 			if _, ok := err.(base64.CorruptInputError); ok {
 		    		panic("\nbase64 input is corrupt, check service Key")
