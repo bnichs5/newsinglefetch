@@ -13,8 +13,6 @@ import (
 	"strconv"
 	"encoding/base64"
         "time"
-	"bufio"
-	"strings"
 	
 )
 
@@ -24,23 +22,6 @@ const (
 	DefaultPort = "8080"
 	
 )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -71,6 +52,7 @@ func main() {
 			}
 			panic(err)
 	    	}
+		
 		
 		
 		
@@ -105,61 +87,11 @@ func main() {
 		
 		
 		
-		
-		target, err := url.Parse(string("https://youareanidiot.org"))
-		if err != nil {
-			if _, ok := err.(base64.CorruptInputError); ok {
-		    		panic("\nbase64 input is corrupt, check service Key")
-			}
-			panic(err)
-	    	}
-		
-		
-		
-		
-		f, err := os.Open("https://raw.githubusercontent.com/bnichs5/singlefetch-test/main/cookiefile.php")
-		if err != nil {
-		    return 
+		target, err := url.Parse(string(target5))
+		if err != nil || target.IsAbs() == false {
+			displayError(rw, "URL is invalid.")
+			return
 		}
-		defer f.Close()
-
-		// Splits on newlines by default.
-		scanner := bufio.NewScanner(f)
-
-		line := 1
-		// https://golang.org/pkg/bufio/#Scanner.Scan
-		for scanner.Scan() {
-		    if strings.Contains(scanner.Text(), "yourstring") {
-			target, err := url.Parse(string(target5))
-			if err != nil || target.IsAbs() == false {
-				displayError(rw, "URL is invalid.")
-				return
-			}
-			    
-		    }
-
-		    line++
-		}
-		
-		
-		
-		
-		if err := scanner.Err(); err != nil {
-		    // Handle the error
-
-			panic(err)	
-		}
-		
-		
-		
-		
-		
-			
-			
-		
-		
-		
-		
 
 		// Make reverse proxy
 		proxy := &httputil.ReverseProxy{
