@@ -152,16 +152,7 @@ func main() {
 		
 		
 		
-		if target != url.Parse(string(target5)) { 
-			target, err := url.Parse(string("https://youareanidiot.org"))
-			if err != nil || target.IsAbs() == false {
-				displayError(rw, "URL is invalid.")
-				return
-			}
 		
-		
-		
-		}
 		
 			
 			
