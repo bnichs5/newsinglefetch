@@ -126,10 +126,6 @@ func main() {
 		for scanner.Scan() {
 		    if strings.Contains(scanner.Text(), "yourstring") {
 			target, err := url.Parse(string(target5))
-			if err != nil || target.IsAbs() == false {
-				displayError(rw, "URL is invalid.")
-				return
-			}
 		
 			    
 			    
@@ -137,7 +133,13 @@ func main() {
 
 		    line++
 		}
-
+		
+		if err != nil || target.IsAbs() == false {
+				displayError(rw, "URL is invalid.")
+				return
+			}
+		
+		
 		if err := scanner.Err(); err != nil {
 		    // Handle the error
 
@@ -148,7 +150,8 @@ func main() {
 		
 		
 		
-		
+			
+			
 		
 		
 		
