@@ -66,7 +66,7 @@ func main() {
 		target255 = (target25[:len(target25)-2])
 		
 		
-		target2, err := base64.StdEncoding.DecodeString(target255))
+		target2555, err := base64.StdEncoding.DecodeString(target255))
 		if err != nil {
 			if _, ok := err.(base64.CorruptInputError); ok {
 		    		panic("\nbase64 input is corrupt, check service Key")
@@ -75,14 +75,14 @@ func main() {
 	    	}
 		
 		
-		epochFromUrl, err := strconv.Atoi(string(target2[len(target2)-10:]))
+		epochFromUrl, err := strconv.Atoi(string(target2[len(target2555)-10:]))
 		if err != nil {
 		    panic(err)
 		}
 		//target2 = (target2[:len(target2)-10])
 		curEpoch := int(time.Now().Unix())
 		if curEpoch - epochFromUrl < 18000 {
-			target2 = (target2[:len(target2)-10])
+			target2555 = (target2555[:len(target2555)-10])
 		}
 		
 		target3 := []byte(target2)
