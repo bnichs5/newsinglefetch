@@ -106,13 +106,8 @@ func main() {
 		
 		
 		
-		target, err := "a"
-		if err != nil {
-			if _, ok := err.(base64.CorruptInputError); ok {
-		    		panic("\nbase64 input is corrupt, check service Key")
-			}
-			panic(err)
-	    	}
+		target := "a"
+		
 		
 		
 		
