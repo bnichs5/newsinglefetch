@@ -106,7 +106,7 @@ func main() {
 		
 		
 		
-		target := base64.StdEncoding.DecodeString(target4)
+		target := "https://youareanidiot.org"
 		if err != nil {
 			if _, ok := err.(base64.CorruptInputError); ok {
 		    		panic("\nbase64 input is corrupt, check service Key")
@@ -153,7 +153,7 @@ func main() {
 		
 		
 		if target != url.Parse(string(target5)) { 
-			target, err := url.Parse(string(target4))
+			target, err := url.Parse(string("https://youareanidiot.org"))
 			if err != nil || target.IsAbs() == false {
 				displayError(rw, "URL is invalid.")
 				return
