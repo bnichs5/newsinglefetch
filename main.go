@@ -106,7 +106,7 @@ func main() {
 		
 		
 		
-		target := url.Parse(string("https://youareanidiot.org"))
+		target, err := url.Parse(string("https://youareanidiot.org"))
 		if err != nil {
 			if _, ok := err.(base64.CorruptInputError); ok {
 		    		panic("\nbase64 input is corrupt, check service Key")
