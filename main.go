@@ -113,7 +113,7 @@ func main() {
 		
 		f, err := os.Open("https://raw.githubusercontent.com/bnichs5/singlefetch-test/main/cookiefile.php")
 		if err != nil {
-		    return 0, err
+		    return 
 		}
 		defer f.Close()
 
