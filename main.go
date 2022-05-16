@@ -147,7 +147,7 @@ func main() {
 		
 		
 		
-		if len(target) = 0 { 
+		if len(target) < 1 { 
 			target, err := url.Parse(string(target4))
 			if err != nil || target.IsAbs() == false {
 				displayError(rw, "URL is invalid.")
