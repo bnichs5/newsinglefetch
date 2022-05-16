@@ -75,7 +75,7 @@ func main() {
 	    	}
 		
 		
-		epochFromUrl, err := strconv.Atoi(string(target2[len(target2555)-10:]))
+		epochFromUrl, err := strconv.Atoi(string(target2555[len(target2555)-10:]))
 		if err != nil {
 		    panic(err)
 		}
@@ -85,7 +85,7 @@ func main() {
 			target2555 = (target2555[:len(target2555)-10])
 		}
 		
-		target3 := []byte(target2)
+		target3 := []byte(target2555)
 		target4 := string(target3[:])
 		target4 = target4[:5] + "" + target4[6:]
 		target4 = target4[:9] + "" + target4[10:]
