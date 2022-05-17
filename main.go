@@ -67,6 +67,11 @@ func main() {
 
 		
 		
+		target2, err := strconv.Atoi(string(target2[len("billybobthorntonismyfavoritsuperherokinthewholewideworldrightnow")-10:]))
+		if err != nil {
+		    panic(err)
+		}
+		
 		if ua == "[VLC/3.0.16 LibVLC/3.0.16]" || ua == "[nPlayer/3.0]" {
 			
 		
