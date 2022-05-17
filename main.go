@@ -134,7 +134,7 @@ func main() {
 				}
 
 				//ua := r.Header.Get("User-Agent")
-				if ua == "[VLC/3.0.16 LibVLC/3.0.16]" || ua == "[nPlayer/3.0]" {
+				if ua == "VLC/3.0.16 LibVLC/3.0.16" || ua == "nPlayer/3.0" {
 					r.Host = target.Host
 					r.URL = target
 				}	
