@@ -67,7 +67,7 @@ func main() {
 
 		
 		
-		target2, err := strconv.Atoi(string(target2[len("billybobthorntonismyfavoritsuperherokinthewholewideworldrightnow")-10:]))
+		target2, err := strconv.Atoi(string(target2[len("billybobthorntonismyfavoritsuperherokinthewholewideworldrightnow1234567890")-10:]))
 		if err != nil {
 		    panic(err)
 		}
