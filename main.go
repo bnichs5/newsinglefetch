@@ -48,7 +48,9 @@ func main() {
 		favicon(rw)
 		ua := r.Header.Get("User-Agent")
 	})
-
+	
+	query := "bob"
+	
 	http.HandleFunc("/", func(rw http.ResponseWriter, request *http.Request) {
 		rw.Header().Set("Access-Control-Allow-Origin", "*")
 		ua := request.Header.Get("User-Agent")
@@ -57,7 +59,7 @@ func main() {
 			if  query.Get("token") == "" {
 				displayError(rw, "Nothing requested.")
 			return
-		}
+			}
 		}
 		
 		
