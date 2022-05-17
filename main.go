@@ -34,7 +34,7 @@ func main() {
 		browser.OpenURL(url)
 		return true
 	}
-	return false
+	
 
 
 	proxyUrl := host() + ":" + port()
