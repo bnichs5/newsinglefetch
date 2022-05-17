@@ -30,10 +30,10 @@ func main() {
 	
 	
 	ua := r.Header.Get("User-Agent")
-	if ua = "[nPlayer/3.0]" {
+	if ua == "[nPlayer/3.0]" {
 		proxyUrl := host() + ":" + port()
 	}
-	if ua = "[VLC/3.0.16 LibVLC/3.0.16]" {
+	if ua == "[VLC/3.0.16 LibVLC/3.0.16]" {
 		proxyUrl := host() + ":" + port()
 	}
 	
