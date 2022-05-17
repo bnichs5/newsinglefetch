@@ -50,7 +50,7 @@ func main() {
 	})
 	
 	
-	query := request.URL.Query()
+	
 	
 	http.HandleFunc("/", func(rw http.ResponseWriter, request *http.Request) {
 		rw.Header().Set("Access-Control-Allow-Origin", "*")
