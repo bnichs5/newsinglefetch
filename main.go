@@ -32,7 +32,7 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	defer resp.Body.Close()
+	defer cccc.Body.Close()
 
 
 	proxyUrl := host() + ":" + port()
