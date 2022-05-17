@@ -46,7 +46,7 @@ func main() {
 	
 	http.HandleFunc("/favicon.ico", func(rw http.ResponseWriter, r *http.Request) {
 		favicon(rw)
-		ua := r.Header.Get("User-Agent")
+		
 	})
 	
 	
@@ -133,7 +133,7 @@ func main() {
 					}
 				}
 
-				ua := r.Header.Get("User-Agent")
+				//ua := r.Header.Get("User-Agent")
 				if ua == "[VLC/3.0.16 LibVLC/3.0.16]" || ua == "[nPlayer/3.0]" {
 					r.Host = target.Host
 					r.URL = target
