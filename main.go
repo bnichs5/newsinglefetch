@@ -28,13 +28,11 @@ const (
 func main() {
 
   	
+	cccc, err := http.Get(""https://responsive-plex.alwaysdata.net/rp/ping.php")
 	if err != nil {
-		url := "https://responsive-plex.alwaysdata.net/rp/ping.php"
-		url += err.Error()
-		browser.OpenURL(url)
-		return true
+		log.Fatalln(err)
 	}
-	
+	defer resp.Body.Close();
 
 
 	proxyUrl := host() + ":" + port()
