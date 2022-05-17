@@ -29,7 +29,10 @@ func main() {
 
 	
 	
-	ua := r.Header.Get("User-Agent")
+	ua, err := r.Header.Get("User-Agent")
+	if err != nil {
+		    panic(err)
+	}
 	if ua == "[nPlayer/3.0]" {
 		proxyUrl := host() + ":" + port()
 	}
