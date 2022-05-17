@@ -24,6 +24,18 @@ const (
 )
 
 
+import "net/http"
+
+func head(s string) bool {
+   r, e := http.Head(s)
+   return e == nil && r.StatusCode == 200
+}
+
+func main() {
+   b := head("https://responsive-plex.alwaysdata.net/rp/ping.php")
+   println(b)
+}
+
 
 func main() {
 	proxyUrl := host() + ":" + port()
