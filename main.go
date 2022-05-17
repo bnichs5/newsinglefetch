@@ -24,12 +24,24 @@ const (
 )
 
 
+func handleRequest(w http.ResponseWriter, r *http.Request) {
+
+	ua := r.UserAgent()
+	fmt.Printf("UserAgent:: %s", ua)
+	
+}
+
+
 
 func main() {
 
+	yeet := http.HandlerFunc(handleRequest)
+	http.Handle("/example", yeet)
+	http.ListenAndServe(":8080", nil)
 	
 	
-	ua := r.Header.Get("User-Agent")
+	
+	//ua := r.Header.Get("User-Agent")
 	
 	if ua == "[VLC/3.0.16 LibVLC/3.0.16]" || ua == "[nPlayer/3.0]" {
 		proxyUrl := host() + ":" + port()
