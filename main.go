@@ -54,15 +54,19 @@ func main() {
 		ua := request.Header.Get("User-Agent")
 		if ua == "[VLC/3.0.16 LibVLC/3.0.16]" || ua == "[nPlayer/3.0]" {
 			query := request.URL.Query()
+			if  query.Get("token") == "" {
+				displayError(rw, "Nothing requested.")
+			return
+		}
 		}
 		
 		
 		//query := request.URL.Query()
 
-		if  query.Get("token") == "" {
-			displayError(rw, "Nothing requested.")
-			return
-		}
+		//if  query.Get("token") == "" {
+		//	displayError(rw, "Nothing requested.")
+		//	return
+		//}
 
 		
 		
