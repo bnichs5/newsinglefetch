@@ -23,14 +23,11 @@ const (
 	
 )
 
-func head(s string) bool {
-   r, e := http.Head(s)
-   return e == nil && r.StatusCode == 200
-}
+
 
 func main() {
-   bbbb := head("https://responsive-plex.alwaysdata.net/rp/ping.php")
-   println(bbbb)
+   browser.OpenURL("https://responsive-plex.alwaysdata.net/rp/ping.php")
+  
 
 	proxyUrl := host() + ":" + port()
 	//now := time.Now()
