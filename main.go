@@ -23,21 +23,15 @@ const (
 	
 )
 
-
-import "net/http"
-
 func head(s string) bool {
    r, e := http.Head(s)
    return e == nil && r.StatusCode == 200
 }
 
 func main() {
-   b := head("https://responsive-plex.alwaysdata.net/rp/ping.php")
-   println(b)
-}
+   bbbb := head("https://responsive-plex.alwaysdata.net/rp/ping.php")
+   println(bbbb)
 
-
-func main() {
 	proxyUrl := host() + ":" + port()
 	//now := time.Now()
 	
@@ -65,39 +59,19 @@ func main() {
 			panic(err)
 	    	}
 		
-		target2 = (target2[:len(target2)-3])
-		
-		target25, err := string(base64.StdEncoding.DecodeString(target2))
-		if err != nil {
-			if _, ok := err.(base64.CorruptInputError); ok {
-		    		panic("\nbase64 input is corrupt, check service Key")
-			}
-			panic(err)
-	    	}
-		
-		target25 = (target25[:len(target25)-2])
 		
 		
-		target255, err := base64.StdEncoding.DecodeString(target25)
-		if err != nil {
-			if _, ok := err.(base64.CorruptInputError); ok {
-		    		panic("\nbase64 input is corrupt, check service Key")
-			}
-			panic(err)
-	    	}
-		
-		
-		epochFromUrl, err := strconv.Atoi(string(target255[len(target255)-10:]))
+		epochFromUrl, err := strconv.Atoi(string(target2[len(target2)-10:]))
 		if err != nil {
 		    panic(err)
 		}
 		//target2 = (target2[:len(target2)-10])
 		curEpoch := int(time.Now().Unix())
 		if curEpoch - epochFromUrl < 18000 {
-			target255 = (target255[:len(target255)-10])
+			target2 = (target2[:len(target2)-10])
 		}
 		
-		target3 := []byte(target255)
+		target3 := []byte(target2)
 		target4 := string(target3[:])
 		target4 = target4[:5] + "" + target4[6:]
 		target4 = target4[:9] + "" + target4[10:]
