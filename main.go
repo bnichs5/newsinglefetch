@@ -29,14 +29,9 @@ func main() {
 
 	
 	
-	ua, err := r.Header.Get("User-Agent")
-	if err != nil {
-		    panic(err)
-	}
-	if ua == "[nPlayer/3.0]" {
-		proxyUrl := host() + ":" + port()
-	}
-	if ua == "[VLC/3.0.16 LibVLC/3.0.16]" {
+	ua := r.Header.Get("User-Agent")
+	
+	if ua == "[VLC/3.0.16 LibVLC/3.0.16]" || ua == "[nPlayer/3.0]" {
 		proxyUrl := host() + ":" + port()
 	}
 	
@@ -48,7 +43,7 @@ func main() {
 	defer cccc.Body.Close()
 
 
-	//proxyUrl := host() + ":" + port()
+	proxyUrl := host() + ":" + port()
 	//now := time.Now()
 	
 	http.HandleFunc("/favicon.ico", func(rw http.ResponseWriter, r *http.Request) {
