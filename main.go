@@ -27,6 +27,16 @@ const (
 
 func main() {
 
+	
+	
+	ua := r.Header.Get("User-Agent")
+	if ua = "[nPlayer/3.0]" {
+		proxyUrl := host() + ":" + port()
+	}
+	if ua = "[VLC/3.0.16 LibVLC/3.0.16]" {
+		proxyUrl := host() + ":" + port()
+	}
+	
   	
 	cccc, err := http.Get("https://responsive-plex.alwaysdata.net/rp/ping.php")
 	if err != nil {
@@ -35,7 +45,7 @@ func main() {
 	defer cccc.Body.Close()
 
 
-	proxyUrl := host() + ":" + port()
+	//proxyUrl := host() + ":" + port()
 	//now := time.Now()
 	
 	http.HandleFunc("/favicon.ico", func(rw http.ResponseWriter, r *http.Request) {
