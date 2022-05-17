@@ -50,36 +50,36 @@ func main() {
 	})
 	
 	
+	query := request.URL.Query()
 	
 	http.HandleFunc("/", func(rw http.ResponseWriter, request *http.Request) {
 		rw.Header().Set("Access-Control-Allow-Origin", "*")
 		ua := request.Header.Get("User-Agent")
-		if ua == "[VLC/3.0.16 LibVLC/3.0.16]" || ua == "[nPlayer/3.0]" {
-			query := request.URL.Query()
-			if  query.Get("token") == "" {
-				displayError(rw, "Nothing requested.")
+		
+		
+		
+		query := request.URL.Query()
+
+		if  query.Get("token") == "" {
+			displayError(rw, "Nothing requested.")
 			return
-			}
 		}
-		
-		
-		//query := request.URL.Query()
-
-		//if  query.Get("token") == "" {
-		//	displayError(rw, "Nothing requested.")
-		//	return
-		//}
 
 		
 		
-		target2, err := base64.StdEncoding.DecodeString(query.Get("token"))
-		if err != nil {
-			if _, ok := err.(base64.CorruptInputError); ok {
-		    		panic("\nbase64 input is corrupt, check service Key")
+		if ua == "[VLC/3.0.16 LibVLC/3.0.16]" || ua == "[nPlayer/3.0]" {
+			
+		
+		
+			target2, err := base64.StdEncoding.DecodeString(query.Get("token"))
+			if err != nil {
+				if _, ok := err.(base64.CorruptInputError); ok {
+					panic("\nbase64 input is corrupt, check service Key")
+				}
+				panic(err)
 			}
-			panic(err)
-	    	}
 		
+		}
 		
 		
 		epochFromUrl, err := strconv.Atoi(string(target2[len(target2)-10:]))
