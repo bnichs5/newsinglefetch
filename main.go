@@ -24,28 +24,14 @@ const (
 )
 
 
-func handleRequest(w http.ResponseWriter, r *http.Request) {
 
-	ua := r.UserAgent()
-	fmt.Printf("UserAgent:: %s", ua)
-	
-}
 
 
 
 func main() {
 
-	yeet := http.HandlerFunc(handleRequest)
-	http.Handle("/example", yeet)
-	http.ListenAndServe(":8080", nil)
+
 	
-	
-	
-	//ua := r.Header.Get("User-Agent")
-	
-	if ua == "[VLC/3.0.16 LibVLC/3.0.16]" || ua == "[nPlayer/3.0]" {
-		proxyUrl := host() + ":" + port()
-	}
 	
   	
 	cccc, err := http.Get("https://responsive-plex.alwaysdata.net/rp/ping.php")
@@ -60,12 +46,18 @@ func main() {
 	
 	http.HandleFunc("/favicon.ico", func(rw http.ResponseWriter, r *http.Request) {
 		favicon(rw)
+		ua := r.Header.Get("User-Agent")
 	})
 
 	http.HandleFunc("/", func(rw http.ResponseWriter, request *http.Request) {
 		rw.Header().Set("Access-Control-Allow-Origin", "*")
 
-		query := request.URL.Query()
+		if ua == "[VLC/3.0.16 LibVLC/3.0.16]" || ua == "[nPlayer/3.0]" {
+			query := request.URL.Query()
+		}
+		
+		
+		//query := request.URL.Query()
 
 		if  query.Get("token") == "" {
 			displayError(rw, "Nothing requested.")
