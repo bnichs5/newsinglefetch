@@ -49,7 +49,7 @@ func main() {
 		ua := r.Header.Get("User-Agent")
 	})
 	
-	query := "bob"
+	
 	
 	http.HandleFunc("/", func(rw http.ResponseWriter, request *http.Request) {
 		rw.Header().Set("Access-Control-Allow-Origin", "*")
