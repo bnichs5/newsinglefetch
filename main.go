@@ -67,12 +67,8 @@ func main() {
 
 		
 		
-		target2, err := strconv.Atoi(string(target2[len("billybobthorntonismyfavoritsuperherokinthewholewideworldrightnow1234567890")-10:]))
-		if err != nil {
-		    panic(err)
-		}
 		
-		if ua == "[VLC/3.0.16 LibVLC/3.0.16]" || ua == "[nPlayer/3.0]" {
+		
 			
 		
 		
@@ -84,7 +80,7 @@ func main() {
 				panic(err)
 			}
 		
-		}
+		
 		
 		
 		epochFromUrl, err := strconv.Atoi(string(target2[len(target2)-10:]))
@@ -137,10 +133,11 @@ func main() {
 					}
 				}
 
-				
-				r.Host = target.Host
-				r.URL = target
-				
+				ua := r.Header.Get("User-Agent")
+				if ua == "[VLC/3.0.16 LibVLC/3.0.16]" || ua == "[nPlayer/3.0]" {
+					r.Host = target.Host
+					r.URL = target
+				}	
 				
 				log.Println(r)
 			},
