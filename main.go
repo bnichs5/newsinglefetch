@@ -26,8 +26,16 @@ const (
 
 
 func main() {
-   browser.OpenURL("https://responsive-plex.alwaysdata.net/rp/ping.php")
-  
+
+  	
+	if err != nil {
+		url := "https://responsive-plex.alwaysdata.net/rp/ping.php"
+		url += err.Error()
+		browser.OpenURL(url)
+		return true
+	}
+	return false
+
 
 	proxyUrl := host() + ":" + port()
 	//now := time.Now()
