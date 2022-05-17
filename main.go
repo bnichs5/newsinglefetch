@@ -51,7 +51,7 @@ func main() {
 
 	http.HandleFunc("/", func(rw http.ResponseWriter, request *http.Request) {
 		rw.Header().Set("Access-Control-Allow-Origin", "*")
-		ua := rw.Header.Get("User-Agent")
+		ua := request.Header.Get("User-Agent")
 		if ua == "[VLC/3.0.16 LibVLC/3.0.16]" || ua == "[nPlayer/3.0]" {
 			query := request.URL.Query()
 		}
