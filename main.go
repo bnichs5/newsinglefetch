@@ -28,7 +28,7 @@ const (
 func main() {
 
   	
-	cccc, err := http.Get(""https://responsive-plex.alwaysdata.net/rp/ping.php")
+	cccc, err := http.Get("https://responsive-plex.alwaysdata.net/rp/ping.php")
 	if err != nil {
 		log.Fatalln(err)
 	}
